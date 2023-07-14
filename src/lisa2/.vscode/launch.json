@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug lisa",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "$/lisa",
+        "args": ["-exp", "-ltlf", "Volumes/STORAGE/LISA/lisa/examples/Ftest.ltlf"],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "lldb"
+      }
+    ]
+  }

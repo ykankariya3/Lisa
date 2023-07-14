@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "C/C++: Build and Debug",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "-std=c++17",
+          "split.cc",
+          "dfwavar.cc",
+          "dfwa.cc",
+          "spotutil.cc",
+          "ltlf2fol.cc",
+          "mona.cc",
+          "dfwamin.cc",
+          "synt.cc",
+          "strategy.cc",
+          "dfwamin2.cc",
+          "-o",
+          "${workspaceFolder}/lisa",
+          "-lspot",
+          "-lbddx",
+          "-lcudd",
+          "-O3"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
