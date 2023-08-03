@@ -464,7 +464,7 @@ int sizes = 0;
 
 struct TreeNode {
     spot::op value;
-    //spot::formula leafValue;
+    spot::formula leafValue;
     std::vector<TreeNode*> children;
 	dfwa_pair* dfa;
 
@@ -509,7 +509,7 @@ TreeNode* createTree(spot::formula& f)
         dfwa_pair* pair = new dfwa_pair(aut, aut->num_states(), true, f);
 
 		node->dfa = pair;
-        //node->leafValue = f;
+        node->leafValue = f;
 		sizes++;
     }
 
@@ -528,9 +528,9 @@ void deleteTree(TreeNode* node)
 }
 
 void combineNot(TreeNode* node) {
-	//node->leafValue = formula::Not((node->children).front()->leafValue);
-	//twa_graph_ptr childDFACompliment = spot::complement(((node->children).front()->dfa)->_twa);
-	//node->dfa = new dfwa_pair(childDFACompliment, childDFACompliment->num_states(), true, node->leafValue);
+	node->leafValue = formula::Not((node->children).front()->leafValue);
+	twa_graph_ptr childDFACompliment = spot::complement(((node->children).front()->dfa)->_twa);
+	node->dfa = new dfwa_pair(childDFACompliment, childDFACompliment->num_states(), true, node->leafValue);
 }
 
 void combineAnd(TreeNode* node) {
@@ -556,14 +556,13 @@ void combineAnd(TreeNode* node) {
 	}
 
 	node->dfa = new dfwa_pair(childrenSorted.top());
-	//node->leafValue = node->dfa->_formula;
+	node->leafValue = node->dfa->_formula;
 }
 
 void combineOr(TreeNode* node) {
 	priority_queue<dfwa_pair, std::vector<dfwa_pair>, GreaterThanByDfwaSize> childrenSorted;
 	for (TreeNode* child : node->children) {
 		childrenSorted.push(*(child->dfa));
-		delete child;
 	}
 	while (childrenSorted.size() > 1) {
 		dfwa_pair first = childrenSorted.top();
@@ -584,12 +583,12 @@ void combineOr(TreeNode* node) {
 	}
 
 	node->dfa = new dfwa_pair(childrenSorted.top());
-	//node->leafValue = node->dfa->_formula;
+	node->leafValue = node->dfa->_formula;
 }
 
 void combineTree(TreeNode* node)
 {
-    if (node == nullptr || node->children.empty())
+    if (node == nullptr || node->leafValue != nullptr)
         return;
 
 	for (TreeNode* child : node->children)
@@ -622,7 +621,7 @@ void printTree(TreeNode* node, int indent = 0)
     }
     else
     {
-       // std::cout << indentStr << "Formula: " << node->leafValue << std::endl;
+        std::cout << indentStr << "Formula: " << node->leafValue << std::endl;
     }
 
     for (auto child : node->children)
@@ -656,15 +655,13 @@ int main(int argc, char** argv)
     input_f = pf1.f;
 
     TreeNode* tree = createTree(input_f);
-	clock_t c_end = clock();
-	cout << "Decomp Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
     ltlfile.close();
 
     //cout << "Starting the composition phase" << endl;
 
     combineTree(tree);
 
-	c_end = clock();
+	clock_t c_end = clock();
 	//cout << tree->leafValue << endl;
 
 	dfwa_pair* pair = tree->dfa;

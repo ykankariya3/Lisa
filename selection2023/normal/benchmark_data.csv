@@ -1,0 +1,3 @@
+Benchmark,Lisa1 Runtime,Lisa1 States,Lisa1 Subformulas,Lisa2 Runtime,Lisa2 States,Lisa2 Subformulas,Breakdown Difference,Misstates Equal
+001.ltlf,3213.74,519,3,1071.44,519,3,0,True
+Total Runtime,3213.74,,,1071.44,,

@@ -82,7 +82,7 @@ static struct opt_t
 void 
 get_formulas(vector<formula>& lst, formula f)
 {
-    cout << "Breaking formula into small pieces..." << endl;
+    //cout << "Breaking formula into small pieces..." << endl;
     if(f.kind() == op::And)
     {
         // needs to limit the number of conjunctions if no minimization is used before producting two FAs
@@ -463,11 +463,12 @@ main(int argc, char** argv)
 	ltlfile.open(opt->_ltlfile_name);
     string line;
     priority_queue<dfwa_pair, std::vector<dfwa_pair>, GreaterThanByDfwaSize> autlist;
+	int sizes = 0;
     clock_t c_start = clock();
     spot::bdd_dict_ptr dict = spot::make_bdd_dict();
     formula input_f;
 	// cout << ltlfile << endl;
-	cout << "Starting the decomposition phase" << endl;
+	//cout << "Starting the decomposition phase" << endl;
     if (ltlfile.is_open()) 
     {
         getline(ltlfile, line);
@@ -492,6 +493,8 @@ main(int argc, char** argv)
         	cout << f << "->" <<  index << endl;
         }*/
         //reorganize_formulas(lst);
+		cout << "splited formulas" << endl;
+		cout << lst.size() << endl;
         while(lst.size() > 0)
         {
             // translating automata
@@ -501,6 +504,7 @@ main(int argc, char** argv)
             twa_graph_ptr aut = trans_formula(f, dict, opt->_num_ap_for_mona);
             // cout << aut->num_states() << endl;
             dfwa_pair pair(aut, aut->num_states(), true, f);
+
             pair._num_propduct = 0;
             // cout << "st = " << aut->num_states() << endl;
             autlist.push(pair);
@@ -509,14 +513,20 @@ main(int argc, char** argv)
         ltlfile.close();
     }
 
-    //cout << "splited formulas" << endl;
+    cout << "splited formulas" << endl;
+	cout << autlist.size() << endl;
+	clock_t c_end = clock();
+	cout << "Decomp Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
+
     // do products 
     bdd_autoreorder(BDD_REORDER_WIN2ITE);
-	cout << "Starting the composition phase" << endl;
+	//cout << "Starting the composition phase" << endl;
 
     set<twa_graph_ptr> optimized;
 
-	cout << autlist.size() << endl;
+	sizes = autlist.size();
+
+	//cout << autlist.size() << endl;
     while(autlist.size() > 1) 
     {
         // cout << "Number of DFAs in the set: " << autlist.size() << endl;
@@ -548,6 +558,7 @@ main(int argc, char** argv)
         	&& (A->num_states() * B->num_states() < opt->_num_st_for_product))))
         	{
         		// explict representation used
+				
         		twa_graph_ptr P = spot::product(A, B);
         		//cout << "explicit minimization starts..." << endl;
         		P = spot::minimize_wdba(P);
@@ -637,18 +648,21 @@ main(int argc, char** argv)
         	delete B;
         }
     }
-    clock_t c_end = clock();
-    cout << "Finished constructing minimal dfa in "
-    		 << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
+    c_end = clock();
+    // cout << "Finished constructing minimal dfa in "
+    // 		 << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
     dfwa_pair pair = autlist.top();
-	cout << "Number of states (or nodes) is: " << pair._num_states << endl;
+	// cout << "Number of states (or nodes) is: " << pair._num_states << endl;
     if(pair._is_explicit && optimized.find(pair._twa) == optimized.end())
     {
     	// in case we only have one DFA and it is not minimized
     	pair._twa = minimize_explicit(pair._twa);
     }
-    cout << "Final result (or number of nodes): " << pair._num_states << endl;
+    // cout << "Final result (or number of nodes): " << pair._num_states << endl;
 	//cout << pair._formula << endl;
+	cout << "Breakdown: " << sizes << endl;
+	cout << "Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
+	cout << "Min States: " << pair._twa->num_states() << endl;
     if(! pair._is_explicit && ! opt->_synthesis)
     {
     	if(opt->_minimization)
