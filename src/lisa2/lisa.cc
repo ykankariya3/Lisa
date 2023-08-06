@@ -482,9 +482,17 @@ TreeNode* createTree(spot::formula& f)
             TreeNode* child = createTree(children);
             node->children.push_back(child);
         }
-    } else if (node->value == op::G && f[0].kind() == op::And
-	//add "&& f[0].kind() == op::Not" when fixed
-	)
+    } 
+	// else if (node-> value == op::Not && (f[0].kind() == op::And || f[0].kind() == op::Or || f[0].kind() == op::G || f[0].kind() == op::F)) {
+	// 	node->value = f[0].kind();
+	// 	for (formula not1 : f[0]) 
+	// 	{
+	// 		formula Not = formula::Not(not1);
+	// 		TreeNode* child = createTree(Not);
+	// 		node->children.push_back(child);
+	// 	}
+	// }
+	else if (node->value == op::G && f[0].kind() == op::And)
     {
 		node->value = op::And;
 		for (formula conjunct : f[0])
@@ -502,7 +510,17 @@ TreeNode* createTree(spot::formula& f)
 			TreeNode* child = createTree(fSum);
 			node->children.push_back(child);
 		}
-    } else
+    } else if (node -> value == op::Implies) {
+		node->value = op::Or;
+		formula c1 = formula::Not(f[0]);
+		TreeNode* child1 = createTree(c1);
+		formula c2 = f[1];
+		TreeNode* child2 = createTree(c2);
+		node->children.push_back(child1);
+		node->children.push_back(child2);
+	}
+	
+	else
     {
 		twa_graph_ptr aut = minimize_explicit(trans_formula(f, dict, opt->_num_ap_for_mona));
         //cout << aut->num_states() << endl;
@@ -537,6 +555,7 @@ void combineAnd(TreeNode* node) {
 	priority_queue<dfwa_pair, std::vector<dfwa_pair>, GreaterThanByDfwaSize> childrenSorted;
 	for (TreeNode* child : node->children) {
 		childrenSorted.push(*(child->dfa));
+		delete child;
 	}
 	while (childrenSorted.size() > 1) {
 		dfwa_pair first = childrenSorted.top();
@@ -616,13 +635,15 @@ void printTree(TreeNode* node, int indent = 0)
 
     std::string indentStr(indent, ' ');
 
-    if (node->value == op::And || node->value == op::Or || node->value == op::Not)
+    if (node->value == op::And || node->value == op::Or 
+	//node->value == op::Not
+	)
     {
         std::cout << indentStr << "Operator: " << opToString(node->value) << std::endl;
     }
     else
     {
-       // std::cout << indentStr << "Formula: " << node->leafValue << std::endl;
+        std::cout << indentStr << "Formula: " << node->dfa->_formula << std::endl;
     }
 
     for (auto child : node->children)
@@ -656,8 +677,10 @@ int main(int argc, char** argv)
     input_f = pf1.f;
 
     TreeNode* tree = createTree(input_f);
+	//printTree(tree);
 	clock_t c_end = clock();
 	cout << "Decomp Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
+	cout << "Breakdown: " << sizes << endl;
     ltlfile.close();
 
     //cout << "Starting the composition phase" << endl;
@@ -678,6 +701,6 @@ int main(int argc, char** argv)
 	cout << "Breakdown: " << sizes << endl;
 	cout << "Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
 	cout << "Min States: " << pair->_twa->num_states() << endl;
-    deleteTree(tree);
+
 
 }
