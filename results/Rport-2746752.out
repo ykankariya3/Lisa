@@ -1,0 +1,1717 @@
+---------------------------------------
+Begin Slurm Prolog: Aug-06-2023 20:52:45
+Job ID:    2746752
+User ID:   ykankariya3
+Account:   gts-sbansal38
+Job name:  bench.sbatch
+Partition: cpu-small
+QOS:       inferno
+---------------------------------------
+case_7_50
+AAAI2020-benchmarks-cap/case/case_7_50/39.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/42.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/34.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 90.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/23.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/22.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 5570.00ms ...
+Min States: 10754
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/13.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 7
+Runtime: 0.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/1.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/19.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/45.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 7
+Runtime: 252810.00ms ...
+Min States: 16322
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/5.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 20.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/35.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 10.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/36.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 7
+Runtime: 366280.00ms ...
+Min States: 6145
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/7.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/25.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 20
+Runtime: 30.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/29.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 7
+Runtime: 0.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/49.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 12100.00ms ...
+Min States: 13314
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/18.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 50.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/30.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 7
+Runtime: 4220.00ms ...
+Min States: 16386
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/47.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 30.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/44.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/32.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/17.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/8.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/3.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/41.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 10.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/20.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 21
+Runtime: 30.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/14.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/9.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/40.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 14
+Runtime: 200.00ms ...
+Min States: 2189
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/37.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/10.ltlf
+Decomp Runtime: 110.00ms ...
+Breakdown: 7
+Runtime: 110.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/28.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 20.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/21.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 14
+Runtime: 130.00ms ...
+Min States: 1703
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/27.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 7
+Runtime: 12250.00ms ...
+Min States: 14338
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/31.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/12.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/50.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/15.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 7
+Runtime: 0.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/43.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/2.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 7
+Runtime: 19390.00ms ...
+Min States: 4375
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/46.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 3670.00ms ...
+Min States: 16386
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/11.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/48.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/16.ltlf
+Decomp Runtime: 100.00ms ...
+Breakdown: 7
+Runtime: 100.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/24.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/38.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 7
+Runtime: 1540.00ms ...
+Min States: 8194
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/6.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 6
+Runtime: 0.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/33.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 7
+Runtime: 10.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/4.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 7
+Runtime: 0.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_7_50/26.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 7
+Runtime: 20.00ms ...
+Min States: 130
+
+
+Data collection completed for folder case_7_50
+Excel file created for folder case_7_50
+case_4_50
+AAAI2020-benchmarks-cap/case/case_4_50/39.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 4
+Runtime: 11570.00ms ...
+Min States: 20620
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/42.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 160.00ms ...
+Min States: 257
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/34.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 130
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/23.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 20
+Runtime: 1570.00ms ...
+Min States: 3147
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/22.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 120.00ms ...
+Min States: 257
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/13.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 20.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/1.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 8
+Runtime: 0.00ms ...
+Min States: 83
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/19.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 11
+Runtime: 20.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/45.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 4
+Runtime: 0.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/5.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 20
+Runtime: 3630.00ms ...
+Min States: 2762
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/35.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 130.00ms ...
+Min States: 257
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/36.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/7.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/25.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/29.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 20
+Runtime: 5460.00ms ...
+Min States: 5202
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/49.ltlf
+Decomp Runtime: 60.00ms ...
+Breakdown: 4
+Runtime: 60.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/18.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 8
+Runtime: 10.00ms ...
+Min States: 65
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/30.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/47.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 4
+Runtime: 12080.00ms ...
+Min States: 16922
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/44.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 4
+Runtime: 120980.00ms ...
+Min States: 41618
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/32.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/17.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 4
+Runtime: 1060.00ms ...
+Min States: 6680
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/8.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 4
+Runtime: 0.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/3.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 20.00ms ...
+Min States: 258
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/41.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 12
+Runtime: 20.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/20.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/14.ltlf
+Decomp Runtime: 60.00ms ...
+Breakdown: 4
+Runtime: 60.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/9.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/40.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/37.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 8
+Runtime: 20.00ms ...
+Min States: 83
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/10.ltlf
+Decomp Runtime: 60.00ms ...
+Breakdown: 4
+Runtime: 64800.00ms ...
+Min States: 38027
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/28.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 4
+Runtime: 20.00ms ...
+Min States: 258
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/21.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 4
+Runtime: 93730.00ms ...
+Min States: 33752
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/27.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/31.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 4
+Runtime: 0.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/12.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 258
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/50.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/15.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 4
+Runtime: 140.00ms ...
+Min States: 434
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/43.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/2.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/46.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 258
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/11.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 12
+Runtime: 20.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/48.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 4
+Runtime: 90.00ms ...
+Min States: 257
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/16.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 4
+Runtime: 50840.00ms ...
+Min States: 43682
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/24.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 4
+Runtime: 124200.00ms ...
+Min States: 51138
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/38.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 4
+Runtime: 40.00ms ...
+Min States: 202
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/6.ltlf
+Decomp Runtime: 60.00ms ...
+Breakdown: 4
+Runtime: 60.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/33.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 4
+Runtime: 10.00ms ...
+Min States: 258
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/4.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_4_50/26.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 12
+Runtime: 20.00ms ...
+Min States: 3
+
+
+Data collection completed for folder case_4_50
+Excel file created for folder case_4_50
+case_10_50
+AAAI2020-benchmarks-cap/case/case_10_50/39.ltlf
+Decomp Runtime: 150.00ms ...
+Breakdown: 10
+Runtime: 150.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/42.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 29
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/34.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 10
+Runtime: 3890.00ms ...
+Min States: 11778
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/23.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/22.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/13.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 20
+Runtime: 49160.00ms ...
+Min States: 45929
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/1.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 30
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/19.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/45.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 10
+Runtime: 980.00ms ...
+Min States: 386
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/5.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/35.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/36.ltlf
+Decomp Runtime: 150.00ms ...
+Breakdown: 10
+Runtime: 160.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/7.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/25.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 10
+Runtime: 50.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/29.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 10
+Runtime: 21410.00ms ...
+Min States: 16386
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/49.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/18.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/30.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 10
+Runtime: 14340.00ms ...
+Min States: 32770
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/47.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/44.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 10
+Runtime: 3620.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/32.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/17.ltlf
+Decomp Runtime: 150.00ms ...
+Breakdown: 10
+Runtime: 150.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/8.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 28
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/3.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 10
+Runtime: 50.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/41.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 10
+Runtime: 11700.00ms ...
+Min States: 32770
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/20.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/14.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 9
+Runtime: 20.00ms ...
+Min States: 514
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/9.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/40.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/37.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/10.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 30
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/28.ltlf
+Decomp Runtime: 150.00ms ...
+Breakdown: 10
+Runtime: 160.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/21.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 10
+Runtime: 20.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/27.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 10
+Runtime: 1200.00ms ...
+Min States: 8194
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/31.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/12.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/50.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/15.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/43.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 10
+Runtime: 20.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/2.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/46.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/11.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/48.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/16.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/24.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/38.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/6.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 10
+Runtime: 50.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/33.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 10
+Runtime: 50.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/4.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_10_50/26.ltlf
+
+
+Data collection completed for folder case_10_50
+Excel file created for folder case_10_50
+case_6_50
+AAAI2020-benchmarks-cap/case/case_6_50/39.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/42.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 17
+Runtime: 30.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/34.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 110.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/23.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 10.00ms ...
+Min States: 34
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/22.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 360.00ms ...
+Min States: 4098
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/13.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/1.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/19.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/45.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/5.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/35.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 20.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/36.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/7.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 18
+Runtime: 40.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/25.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 6
+Runtime: 1220.00ms ...
+Min States: 1459
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/29.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 50.00ms ...
+Min States: 258
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/49.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/18.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/30.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 6
+Runtime: 680.00ms ...
+Min States: 3330
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/47.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/44.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 29420.00ms ...
+Min States: 4097
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/32.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 6
+Runtime: 1230.00ms ...
+Min States: 1459
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/17.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 5
+Runtime: 0.00ms ...
+Min States: 34
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/8.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 12
+Runtime: 20.00ms ...
+Min States: 407
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/3.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 6
+Runtime: 220.00ms ...
+Min States: 674
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/41.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/20.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 6
+Runtime: 45960.00ms ...
+Min States: 7106
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/14.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/9.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 6
+Runtime: 390.00ms ...
+Min States: 4098
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/40.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 6
+Runtime: 12740.00ms ...
+Min States: 5322
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/37.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/10.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 6
+Runtime: 36500.00ms ...
+Min States: 8114
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/28.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 6
+Runtime: 720.00ms ...
+Min States: 1297
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/21.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 1260.00ms ...
+Min States: 4098
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/27.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/31.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 6
+Runtime: 20210.00ms ...
+Min States: 5346
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/12.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 6
+Runtime: 0.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/50.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 6
+Runtime: 39010.00ms ...
+Min States: 8130
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/15.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/43.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 5
+Runtime: 150.00ms ...
+Min States: 487
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/2.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 370.00ms ...
+Min States: 1026
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/46.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/11.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 18
+Runtime: 30.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/48.ltlf
+Decomp Runtime: 80.00ms ...
+Breakdown: 6
+Runtime: 90.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/16.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/24.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/38.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 6
+Runtime: 70.00ms ...
+Min States: 834
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/6.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 6
+Runtime: 20.00ms ...
+Min States: 258
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/33.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/4.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 6
+Runtime: 10.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_6_50/26.ltlf
+Decomp Runtime: 90.00ms ...
+Breakdown: 6
+Runtime: 90.00ms ...
+Min States: 3
+
+
+Data collection completed for folder case_6_50
+Excel file created for folder case_6_50
+case_3_50
+AAAI2020-benchmarks-cap/case/case_3_50/39.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/42.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/34.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/23.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/22.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 15
+Runtime: 80.00ms ...
+Min States: 552
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/13.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 9
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/1.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/19.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/45.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/5.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 20.00ms ...
+Min States: 55
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/35.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 3
+Runtime: 40.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/36.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 55
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/7.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/25.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 8
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/29.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 20.00ms ...
+Min States: 122
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/49.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/18.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/30.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 3
+Runtime: 40.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/47.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 65
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/44.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/32.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 9
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/17.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 3
+Runtime: 980.00ms ...
+Min States: 3470
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/8.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/3.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 3
+Runtime: 4330.00ms ...
+Min States: 8802
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/41.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 3
+Runtime: 280.00ms ...
+Min States: 2199
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/20.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 30.00ms ...
+Min States: 218
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/14.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/9.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 33
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/40.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 3
+Runtime: 1670.00ms ...
+Min States: 4575
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/37.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 3
+Runtime: 4120.00ms ...
+Min States: 9220
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/10.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 3
+Runtime: 860.00ms ...
+Min States: 3377
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/28.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/21.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 3
+Runtime: 30.00ms ...
+Min States: 218
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/27.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/31.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 65
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/12.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/50.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/15.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/43.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/2.ltlf
+Decomp Runtime: 30.00ms ...
+Breakdown: 3
+Runtime: 620.00ms ...
+Min States: 2657
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/46.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 30.00ms ...
+Min States: 218
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/11.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/48.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 30.00ms ...
+Min States: 218
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/16.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 10
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/24.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 65
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/38.ltlf
+Decomp Runtime: 40.00ms ...
+Breakdown: 3
+Runtime: 680.00ms ...
+Min States: 3377
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/6.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 9
+Runtime: 10.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/33.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 66
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/4.ltlf
+Decomp Runtime: 0.00ms ...
+Breakdown: 3
+Runtime: 0.00ms ...
+Min States: 18
+
+
+AAAI2020-benchmarks-cap/case/case_3_50/26.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 3
+Runtime: 10.00ms ...
+Min States: 65
+
+
+Data collection completed for folder case_3_50
+Excel file created for folder case_3_50
+case_9_50
+AAAI2020-benchmarks-cap/case/case_9_50/39.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/42.ltlf
+Decomp Runtime: 120.00ms ...
+Breakdown: 9
+Runtime: 120.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/34.ltlf
+Decomp Runtime: 140.00ms ...
+Breakdown: 9
+Runtime: 140.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/23.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 27
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/22.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 9
+Runtime: 20.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/13.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/1.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 18
+Runtime: 5150.00ms ...
+Min States: 15311
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/19.ltlf
+Decomp Runtime: 130.00ms ...
+Breakdown: 9
+Runtime: 130.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/45.ltlf
+Decomp Runtime: 130.00ms ...
+Breakdown: 9
+Runtime: 130.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/5.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/35.ltlf
+Decomp Runtime: 60.00ms ...
+Breakdown: 9
+Runtime: 605360.00ms ...
+Min States: 33794
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/36.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/7.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/25.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/29.ltlf
+Decomp Runtime: 130.00ms ...
+Breakdown: 9
+Runtime: 130.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/49.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/18.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/30.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/47.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/44.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/32.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/17.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 9
+Runtime: 320.00ms ...
+Min States: 514
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/8.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 9
+Runtime: 220.00ms ...
+Min States: 514
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/3.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/41.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/20.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 27
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/14.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/9.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 9
+Runtime: 453030.00ms ...
+Min States: 24057
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/40.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/37.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/10.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/28.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/21.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 27
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/27.ltlf
+Decomp Runtime: 50.00ms ...
+Breakdown: 27
+Runtime: 50.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/31.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/12.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 9
+Runtime: 30.00ms ...
+Min States: 514
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/50.ltlf
+Decomp Runtime: 140.00ms ...
+Breakdown: 9
+Runtime: 140.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/15.ltlf
+Decomp Runtime: 10.00ms ...
+Breakdown: 9
+Runtime: 400.00ms ...
+Min States: 514
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/43.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/2.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/46.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/11.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/48.ltlf
+Decomp Runtime: 20.00ms ...
+Breakdown: 18
+Runtime: 2290.00ms ...
+Min States: 8507
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/16.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/24.ltlf
+Decomp Runtime: 140.00ms ...
+Breakdown: 9
+Runtime: 140.00ms ...
+Min States: 3
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/38.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/6.ltlf
+
+
+AAAI2020-benchmarks-cap/case/case_9_50/33.ltlf

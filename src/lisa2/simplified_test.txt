@@ -1,0 +1,62 @@
+Formula: ()
+        Formula: turnuenv
+    Formula: turnusys
+    Operator: ||
+        Formula: heapu0u1
+        Formula: selcectusysu0
+    Operator: ||
+        Formula: heapu1u1
+        Formula: selcectusysu1
+    Operator: ||
+        Formula: heapu2u1
+        Formula: selcectusysu2
+    Operator: ||
+        Formula: changeusysu0
+        Operator: !
+            Formula: selcectusysu0
+    Operator: ||
+        Formula: changeusysu0
+        Operator: !
+            Formula: selcectusysu1
+    Operator: ||
+        Formula: changeusysu0
+        Operator: !
+            Formula: selcectusysu2
+    Operator: ||
+        Formula: G(turnusys -> (selcectusysu0 | selcectusysu1 | selcectusysu2))
+        Operator: !
+Formula: ( &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  & )
+Formula: ( &  &  &  &  &  &  &  &  &  &  &  & )

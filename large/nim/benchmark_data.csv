@@ -1,0 +1,17 @@
+Benchmark,Runtime,States,Subformulas,Decomp Time,Unique Constructions,Repetitive Constructions
+nim_3_1.ltlf,1416.1587
+nim_1_1.ltlf,12.347714
+nim_2_4.ltlf,17291.679861
+nim_1_2.ltlf,109.599376
+nim_4_1.ltlf,73134.356487
+nim_3_2.ltlf,87730.52732
+nim_1_3.ltlf,108.286226
+nim_1_4.ltlf,209.572347
+nim_2_1.ltlf,115.407714
+nim_1_8.ltlf,1269.791004
+nim_1_5.ltlf,295.920633
+nim_2_3.ltlf,2821.757021
+nim_1_6.ltlf,612.446518
+nim_1_7.ltlf,956.037466
+nim_2_2.ltlf,382.251061
+nim_2_5.ltlf,74618.298173

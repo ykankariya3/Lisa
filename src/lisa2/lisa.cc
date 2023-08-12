@@ -45,6 +45,8 @@
 #include "dfwamin2.hh"
 //#include "dfwamin3.hh"
 
+#include <map>
+
 using namespace spot;
 using namespace std;
 
@@ -460,39 +462,98 @@ std::string opToString(spot::op op)
 }
 
 spot::bdd_dict_ptr dict = spot::make_bdd_dict();
-int sizes = 0;
+
+spot::twa_graph_ptr
+complement_DFA(spot::twa_graph_ptr aut)
+{
+  string alive_ap("alive");
+	int var_index = dict->varnum(formula::ap(alive_ap));
+	bdd p = bdd_ithvar(var_index);
+	
+  spot::twa_graph_ptr ret = make_twa_graph(dict);
+  ret->set_buchi();
+  ret->prop_state_acc();
+  ret->copy_ap_of(aut);
+  ret->new_states(aut->num_states() + 2);
+  unsigned sink_final = aut->num_states();
+  unsigned sink_buchi = aut->num_states() + 1;
+
+  for (unsigned s = 0; s < aut->num_states(); s ++)
+  {
+    bdd all_letters = bddfalse;
+
+    bool is_final = false;
+    for (auto & tr : aut ->out(s)) 
+    {
+      bdd has_p = p & tr.cond;
+      if (has_p != bddfalse) {
+        all_letters = all_letters | tr.cond;
+        ret->new_edge(s, tr.dst, tr.cond);
+      }else {
+        is_final = true;
+      }
+    }
+    if (all_letters == bddfalse && is_final)
+    {
+      continue;
+    }
+    if (all_letters != p) {
+      all_letters = p & ! all_letters;
+      ret->new_edge(s, sink_final, all_letters);
+    }
+    
+    if (!is_final) {
+      ret->new_edge(s, sink_buchi, !p);
+    }
+  }
+  ret->new_edge(sink_final, sink_final, p);
+  ret->new_edge(sink_final, sink_buchi, !p);
+
+  ret->new_edge(sink_buchi, sink_buchi, !p, {0});
+  ret->merge_edges();
+  ret->set_init_state(aut->get_init_state_number());
+
+  return ret;
+}
+
 
 struct TreeNode {
     spot::op value;
     //spot::formula leafValue;
     std::vector<TreeNode*> children;
 	dfwa_pair* dfa;
+	bool combined;
+	int refCount;
 
-    TreeNode(const spot::op& val) : value(val) {}
+    TreeNode(const spot::op& val) : value(val), combined(false), refCount(1) {}
 };
+
+int sizes = 0;
+int unique_constructs = 0;
+int repeated_constructs = 0;
+int repeated_intermediary = 0;
+std::map<formula, TreeNode*> nodeMap;
+std::map<formula, twa_graph_ptr> mapped;
 
 TreeNode* createTree(spot::formula& f)
 {
+	auto it = nodeMap.find(f);
+    if (it != nodeMap.end()) {
+		repeated_constructs++;
+		it->second->refCount = it->second->refCount + 1;
+        return it->second;
+    }
     TreeNode* node = new TreeNode(f.kind());
+	nodeMap[f] = node;
     
-    if (node->value == op::And || node->value == op::Or)
+    if (node->value == op::And || node->value == op::Or || node->value == op::Not)
     {
         for (formula children: f)
         {
             TreeNode* child = createTree(children);
             node->children.push_back(child);
         }
-    } 
-	// else if (node-> value == op::Not && (f[0].kind() == op::And || f[0].kind() == op::Or || f[0].kind() == op::G || f[0].kind() == op::F)) {
-	// 	node->value = f[0].kind();
-	// 	for (formula not1 : f[0]) 
-	// 	{
-	// 		formula Not = formula::Not(not1);
-	// 		TreeNode* child = createTree(Not);
-	// 		node->children.push_back(child);
-	// 	}
-	// }
-	else if (node->value == op::G && f[0].kind() == op::And)
+    } else if (node->value == op::G && f[0].kind() == op::And)
     {
 		node->value = op::And;
 		for (formula conjunct : f[0])
@@ -522,11 +583,22 @@ TreeNode* createTree(spot::formula& f)
 	
 	else
     {
-		twa_graph_ptr aut = minimize_explicit(trans_formula(f, dict, opt->_num_ap_for_mona));
+		twa_graph_ptr aut;
+		// if (!mapped.empty() && mapped[f] != nullptr) {
+		// 	aut = mapped.at(f);
+		// 	repeated_constructs++;
+		// } else {
+		aut = minimize_explicit(trans_formula(f, dict, opt->_num_ap_for_mona));
+		//mapped[f] = aut;
+		//cout << f << endl;
+		unique_constructs++;
+		// }
+
         //cout << aut->num_states() << endl;
         dfwa_pair* pair = new dfwa_pair(aut, aut->num_states(), true, f);
 
 		node->dfa = pair;
+		node->combined = true;
         //node->leafValue = f;
 		sizes++;
     }
@@ -534,28 +606,37 @@ TreeNode* createTree(spot::formula& f)
     return node;
 }
 
-void deleteTree(TreeNode* node)
-{
-    if (node == nullptr)
-        return;
-
-    for (auto child : node->children)
-        deleteTree(child);
-
-    delete node;
-}
-
 void combineNot(TreeNode* node) {
-	//node->leafValue = formula::Not((node->children).front()->leafValue);
-	//twa_graph_ptr childDFACompliment = spot::complement(((node->children).front()->dfa)->_twa);
-	//node->dfa = new dfwa_pair(childDFACompliment, childDFACompliment->num_states(), true, node->leafValue);
+
+	TreeNode* child = (node->children).front();
+
+	formula result_formula = formula::Not({child->dfa->_formula});
+	// if (!mapped.empty() && mapped[result_formula] != nullptr) {
+	// 	twa_graph_ptr result = mapped[result_formula];
+	// 	node->dfa = new dfwa_pair(result, result->num_states(), true, result_formula);
+	// 	repeated_intermediary++;
+	// } else {
+		
+		twa_graph_ptr childDFACompliment = complement_DFA((child->dfa)->_twa);
+		node->dfa = new dfwa_pair(childDFACompliment, childDFACompliment->num_states(), true, result_formula);
+		unique_constructs++;
+		node->combined = true;
+		child->refCount--;
+		if (child->refCount == 0) {
+			delete child;
+		}
+	// }
+	//delete (node->children.front());
 }
 
 void combineAnd(TreeNode* node) {
 	priority_queue<dfwa_pair, std::vector<dfwa_pair>, GreaterThanByDfwaSize> childrenSorted;
 	for (TreeNode* child : node->children) {
 		childrenSorted.push(*(child->dfa));
-		delete child;
+		child->refCount--;
+		if (child->refCount == 0) {
+			delete child;
+		}
 	}
 	while (childrenSorted.size() > 1) {
 		dfwa_pair first = childrenSorted.top();
@@ -564,17 +645,28 @@ void combineAnd(TreeNode* node) {
         childrenSorted.pop();
 
         formula result_formula = formula::And({first._formula, second._formula});
+		// if (!mapped.empty() && mapped[result_formula] != nullptr) {
+		// 	twa_graph_ptr result = mapped[result_formula];
+		// 	childrenSorted.push(dfwa_pair(result, result->num_states(), true, result_formula));
+		// 	repeated_intermediary++;
+		// 	continue;
+		// }
+
 		twa_graph_ptr A = first._twa;
 		twa_graph_ptr B = second._twa;
 
 		twa_graph_ptr P = spot::product(A, B);
 		P = minimize_explicit(P);
+		// mapped[result_formula] = P;
 		dfwa_pair pair = dfwa_pair(P, P->num_states(), true, result_formula);
+		unique_constructs++;
 		pair._num_propduct = 1;
 		childrenSorted.push(pair);
 	}
 
 	node->dfa = new dfwa_pair(childrenSorted.top());
+	node->combined = true;
+	//cout << node->dfa->_formula << endl;
 	//node->leafValue = node->dfa->_formula;
 }
 
@@ -582,7 +674,10 @@ void combineOr(TreeNode* node) {
 	priority_queue<dfwa_pair, std::vector<dfwa_pair>, GreaterThanByDfwaSize> childrenSorted;
 	for (TreeNode* child : node->children) {
 		childrenSorted.push(*(child->dfa));
-		delete child;
+		child->refCount--;
+		if (child->refCount == 0) {
+			delete child;
+		}
 	}
 	while (childrenSorted.size() > 1) {
 		dfwa_pair first = childrenSorted.top();
@@ -591,18 +686,29 @@ void combineOr(TreeNode* node) {
         childrenSorted.pop();
 
         formula result_formula = formula::Or({first._formula, second._formula});
+		// if (!mapped.empty() && mapped[result_formula] != nullptr) {
+		// 	twa_graph_ptr result = mapped[result_formula];
+		// 	childrenSorted.push(dfwa_pair(result, result->num_states(), true, result_formula));
+		// 	repeated_intermediary++;
+		// 	continue;
+		// }
+		
 		twa_graph_ptr A = first._twa;
 		twa_graph_ptr B = second._twa;
 
 		twa_graph_ptr P = spot::product_or(A, B);
         
 		P = minimize_explicit(P);
+		// mapped[result_formula] = P;
 		dfwa_pair pair = dfwa_pair(P, P->num_states(), true, result_formula);
+		unique_constructs++;
 		pair._num_propduct = 1;
 		childrenSorted.push(pair);
 	}
 
 	node->dfa = new dfwa_pair(childrenSorted.top());
+	node->combined = true;
+	//cout << node->dfa->_formula << endl;
 	//node->leafValue = node->dfa->_formula;
 }
 
@@ -611,8 +717,14 @@ void combineTree(TreeNode* node)
     if (node == nullptr || node->children.empty())
         return;
 
-	for (TreeNode* child : node->children)
+	if (node -> combined) {
+		repeated_constructs++;
+		return;
+	}
+	
+	for (TreeNode* child : node->children) {
 		combineTree(child);
+	}
 
 	if (node->value == spot::op::Not)
 	{
@@ -635,9 +747,7 @@ void printTree(TreeNode* node, int indent = 0)
 
     std::string indentStr(indent, ' ');
 
-    if (node->value == op::And || node->value == op::Or 
-	//node->value == op::Not
-	)
+    if (node->value == op::And || node->value == op::Or || node->value == op::Not)
     {
         std::cout << indentStr << "Operator: " << opToString(node->value) << std::endl;
     }
@@ -649,7 +759,6 @@ void printTree(TreeNode* node, int indent = 0)
     for (auto child : node->children)
         printTree(child, indent + 4);
 }
-
 
 int main(int argc, char** argv)
 {
@@ -677,30 +786,32 @@ int main(int argc, char** argv)
     input_f = pf1.f;
 
     TreeNode* tree = createTree(input_f);
-	//printTree(tree);
-	clock_t c_end = clock();
-	cout << "Decomp Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
-	cout << "Breakdown: " << sizes << endl;
+	printTree(tree);
+	clock_t c_end_decomp = clock();
+	nodeMap.clear();
     ltlfile.close();
 
     //cout << "Starting the composition phase" << endl;
 
     combineTree(tree);
+	// mapped.clear();
 
-	c_end = clock();
+	clock_t c_end = clock();
 	//cout << tree->leafValue << endl;
 
 	dfwa_pair* pair = tree->dfa;
+	cout << pair->_formula << endl;
 
     // cout << "Finished constructing minimal dfa in "
     // 	<< 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
 	// cout << "Number of states (or nodes) is: " << pair->_num_states << endl;
-	pair->_twa = minimize_explicit(pair->_twa);
+	// pair->_twa = minimize_explicit(pair->_twa);
 	// cout << "Final result (or number of nodes): " << pair->_twa->num_states() << endl;
-
+	cout << "Decomp: " << 1000.0 * (c_end_decomp - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
 	cout << "Breakdown: " << sizes << endl;
 	cout << "Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
 	cout << "Min States: " << pair->_twa->num_states() << endl;
-
-
+	cout << "Unique Constructs: " << unique_constructs << endl;
+	cout << "Repeated Constructs: " << repeated_constructs << endl;
+	cout << "Repeated Intermediary: " << repeated_intermediary << endl;
 }

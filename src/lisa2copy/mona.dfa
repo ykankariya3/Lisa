@@ -1,0 +1,30 @@
+MONA DFA
+number of variables: 9
+variables: selcectusysu1 heapu1u5 changeusysu0 changeusysu1 changeusysu2 changeusysu3 changeusysu4 heapu0u0 heapu1u0
+orders: 2 2 2 2 2 2 2 2 2
+states: 5
+initial: 0
+bdd nodes: 19
+final: -1 -1 1 1 -1
+behaviour: 0 1 1 6 13
+bdd:
+ -1 1 0
+ 1 4 2
+ 7 5 3
+ 8 5 4
+ -1 2 0
+ -1 3 0
+ 0 1 7
+ 1 14 8
+ 2 9 2
+ 3 10 2
+ 4 11 2
+ 5 12 2
+ 6 13 2
+ -1 4 0
+ 2 15 4
+ 3 16 4
+ 4 17 4
+ 5 18 4
+ 6 13 4
+end

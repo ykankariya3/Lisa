@@ -1,7 +1,7 @@
 #LTLf formula
-#(G(((TURNUENV) -> (SELCECTUENVU0)) & (!((HEAPU0U0) & (!(HEAPU0U0)) & (X(SELCECTUENVU0)))) & (((!(HEAPU0U0)) & (HEAPU0U1) & (X(SELCECTUENVU0))) -> (X(CHANGEUENVU0))))) -> (G(((CHANGEUSYSU0) & (SELCECTUSYSU0) & (TURNUSYS)) -> (HEAPU0U0)))
+#(G((!(inc)) -> (X[!](inc)))) -> (F((!(counter0)) & (!(counter1)) & (!(counter2)) & (!(counter3)) & (!(counter4)) & (!(counter5)) & (!(counter6)) & (!(counter7)) & (!(counter8)) & (!(counter9)) & (!(counter10)) & (!(counter11)) & (!(counter12)) & (!(counter13)) & (!(counter14)) & (!(counter15))))
 # Backus normal form
-#(!(F(!((!(CHANGEUSYSU0)) | (HEAPU0U0) | (!(SELCECTUSYSU0)) | (!(TURNUSYS)))))) | (F((!((SELCECTUENVU0) | (!(TURNUENV)))) | (!((HEAPU0U0) | (!(HEAPU0U0)) | (X[!](!(SELCECTUENVU0))))) | (!((HEAPU0U0) | (!(HEAPU0U1)) | (X[!](!(SELCECTUENVU0))) | (!(X[!](!(CHANGEUENVU0))))))))
+#(F(!((counter0) | (counter1) | (counter2) | (counter3) | (counter4) | (counter5) | (counter6) | (counter7) | (counter8) | (counter9) | (counter10) | (counter11) | (counter12) | (counter13) | (counter14) | (counter15)))) | (F(!((inc) | (X[!](inc)))))
 m2l-str;
-var2 TURNUSYS, TURNUENV, SELCECTUSYSU0, HEAPU0U1, CHANGEUSYSU0, SELCECTUENVU0, HEAPU0U0, CHANGEUENVU0;
-((~((ex1 x1: (0 <= x1 & (~(((~((x1 in CHANGEUSYSU0))) | ((x1 in HEAPU0U0)) | (~((x1 in SELCECTUSYSU0))) | (~((x1 in TURNUSYS)))))))))) | ((ex1 x1: (0 <= x1 & (((~((((x1 in SELCECTUENVU0)) | (~((x1 in TURNUENV)))))) | (~((((x1 in HEAPU0U0)) | (~((x1 in HEAPU0U0))) | ((ex1 x2: (x2=x1+1 & (~((x2 in SELCECTUENVU0))))))))) | (~((((x1 in HEAPU0U0)) | (~((x1 in HEAPU0U1))) | ((ex1 x2: (x2=x1+1 & (~((x2 in SELCECTUENVU0)))))) | (~((ex1 x2: (x2=x1+1 & (~((x2 in CHANGEUENVU0))))))))))))))));
+var2 counter0, counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10, counter11, counter12, counter13, counter14, counter15, inc;
+(((ex1 x1: (0 <= x1 & (~((((x1 in counter0)) | ((x1 in counter1)) | ((x1 in counter2)) | ((x1 in counter3)) | ((x1 in counter4)) | ((x1 in counter5)) | ((x1 in counter6)) | ((x1 in counter7)) | ((x1 in counter8)) | ((x1 in counter9)) | ((x1 in counter10)) | ((x1 in counter11)) | ((x1 in counter12)) | ((x1 in counter13)) | ((x1 in counter14)) | ((x1 in counter15)))))))) | ((ex1 x1: (0 <= x1 & (~((((x1 in inc)) | ((ex1 x2: (x2=x1+1 & ((x2 in inc))))))))))));

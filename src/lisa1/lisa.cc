@@ -493,8 +493,8 @@ main(int argc, char** argv)
         	cout << f << "->" <<  index << endl;
         }*/
         //reorganize_formulas(lst);
-		cout << "splited formulas" << endl;
-		cout << lst.size() << endl;
+		//cout << "splited formulas" << endl;
+		//cout << lst.size() << endl;
         while(lst.size() > 0)
         {
             // translating automata
@@ -513,10 +513,9 @@ main(int argc, char** argv)
         ltlfile.close();
     }
 
-    cout << "splited formulas" << endl;
-	cout << autlist.size() << endl;
-	clock_t c_end = clock();
-	cout << "Decomp Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
+    //cout << "splited formulas" << endl;
+	//cout << autlist.size() << endl;
+	clock_t c_end_decomp = clock();
 
     // do products 
     bdd_autoreorder(BDD_REORDER_WIN2ITE);
@@ -648,7 +647,7 @@ main(int argc, char** argv)
         	delete B;
         }
     }
-    c_end = clock();
+    clock_t c_end = clock();
     // cout << "Finished constructing minimal dfa in "
     // 		 << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
     dfwa_pair pair = autlist.top();
@@ -660,6 +659,7 @@ main(int argc, char** argv)
     }
     // cout << "Final result (or number of nodes): " << pair._num_states << endl;
 	//cout << pair._formula << endl;
+	cout << "Decomp: " << 1000.0 * (c_end_decomp - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
 	cout << "Breakdown: " << sizes << endl;
 	cout << "Runtime: " << 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;
 	cout << "Min States: " << pair._twa->num_states() << endl;

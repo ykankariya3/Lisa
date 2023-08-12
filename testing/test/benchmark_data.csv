@@ -1,0 +1,2 @@
+Benchmark,Runtime,States,Subformulas,Decomp Time,Unique Constructions,Repetitive Constructions
+test.ltlf,5,3,7,4,14,0

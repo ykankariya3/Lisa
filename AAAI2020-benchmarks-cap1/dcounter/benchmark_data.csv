@@ -1,0 +1,10 @@
+Benchmark,Runtime,States,Subformulas,Decomp Time,Unique Constructions,Repetitive Constructions
+counters_9.ltlf,349152,785922,74,261,157,0
+counters_8.ltlf,46290,196354,66,91,140,0
+counters_3.ltlf,24,186,26,22,55,0
+counters_2.ltlf,61,46,18,58,38,0
+counters_1.ltlf,19,12,10,18,21,0
+counters_7.ltlf,6605,49026,58,89,123,0
+counters_6.ltlf,893,12226,50,52,106,0
+counters_5.ltlf,502,3042,42,44,89,0
+counters_4.ltlf,189,754,34,158,72,0

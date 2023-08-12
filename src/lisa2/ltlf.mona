@@ -1,7 +1,7 @@
 #LTLf formula
-#(G((!(INC)) -> (X[!](INC)))) -> (F((!(COUNTER0)) & (!(COUNTER1)) & (!(COUNTER2)) & (!(COUNTER3)) & (!(COUNTER4)) & (!(COUNTER5)) & (!(COUNTER6)) & (!(COUNTER7)) & (!(COUNTER8)) & (!(COUNTER9)) & (!(COUNTER10)) & (!(COUNTER11)) & (!(COUNTER12)) & (!(COUNTER13)) & (!(COUNTER14)) & (!(COUNTER15)) & (!(COUNTER16)) & (!(COUNTER17)) & (!(COUNTER18)) & (!(COUNTER19))))
+#G(((heapu1u4) & ((!(heapu0u0)) | (!(heapu1u0))) & (X[!](selcectusysu1))) -> ((X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3))))
 # Backus normal form
-#(F(!((COUNTER0) | (COUNTER1) | (COUNTER2) | (COUNTER3) | (COUNTER4) | (COUNTER5) | (COUNTER6) | (COUNTER7) | (COUNTER8) | (COUNTER9) | (COUNTER10) | (COUNTER11) | (COUNTER12) | (COUNTER13) | (COUNTER14) | (COUNTER15) | (COUNTER16) | (COUNTER17) | (COUNTER18) | (COUNTER19)))) | (F(!((INC) | (X[!](INC)))))
+#!(F(!((!(heapu1u4)) | (!((!(heapu0u0)) | (!(heapu1u0)))) | (X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3)) | (!(X[!](selcectusysu1))))))
 m2l-str;
-var2 COUNTER0, COUNTER1, COUNTER2, COUNTER3, COUNTER4, COUNTER5, COUNTER6, COUNTER7, COUNTER8, COUNTER9, COUNTER10, COUNTER11, COUNTER12, COUNTER13, COUNTER14, COUNTER15, COUNTER16, COUNTER17, COUNTER18, COUNTER19, INC;
-(((ex1 x1: (0 <= x1 & (~((((x1 in COUNTER0)) | ((x1 in COUNTER1)) | ((x1 in COUNTER2)) | ((x1 in COUNTER3)) | ((x1 in COUNTER4)) | ((x1 in COUNTER5)) | ((x1 in COUNTER6)) | ((x1 in COUNTER7)) | ((x1 in COUNTER8)) | ((x1 in COUNTER9)) | ((x1 in COUNTER10)) | ((x1 in COUNTER11)) | ((x1 in COUNTER12)) | ((x1 in COUNTER13)) | ((x1 in COUNTER14)) | ((x1 in COUNTER15)) | ((x1 in COUNTER16)) | ((x1 in COUNTER17)) | ((x1 in COUNTER18)) | ((x1 in COUNTER19)))))))) | ((ex1 x1: (0 <= x1 & (~((((x1 in INC)) | ((ex1 x2: (x2=x1+1 & ((x2 in INC))))))))))));
+var2 selcectusysu1, heapu1u4, changeusysu0, changeusysu1, changeusysu2, changeusysu3, heapu0u0, heapu1u0;
+~((ex1 x1: (0 <= x1 & (~(((~((x1 in heapu1u4))) | (~(((~((x1 in heapu0u0))) | (~((x1 in heapu1u0)))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu0))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu1))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu2))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu3))))) | (~((ex1 x2: (x2=x1+1 & ((x2 in selcectusysu1))))))))))));
