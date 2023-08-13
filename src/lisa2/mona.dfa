@@ -1,28 +1,33 @@
 MONA DFA
-number of variables: 8
-variables: selcectusysu1 heapu1u4 changeusysu0 changeusysu1 changeusysu2 changeusysu3 heapu0u0 heapu1u0
-orders: 2 2 2 2 2 2 2 2
+number of variables: 9
+variables: heapu0u0 heapu1u0 heapu1u5 selcectusysu1 changeusysu1 changeusysu0 changeusysu2 changeusysu3 changeusysu4
+orders: 2 2 2 2 2 2 2 2 2
 states: 5
 initial: 0
-bdd nodes: 17
+bdd nodes: 22
 final: -1 -1 1 1 -1
-behaviour: 0 1 1 6 12
+behaviour: 0 1 1 6 14
 bdd:
  -1 1 0
- 1 4 2
- 6 5 3
- 7 5 4
+ 0 4 2
+ 1 4 3
  -1 2 0
+ 2 3 5
  -1 3 0
- 0 1 7
- 1 13 8
- 2 9 2
- 3 10 2
- 4 11 2
- 5 12 2
+ 0 15 7
+ 1 15 8
+ 3 3 9
+ 4 10 3
+ 5 11 3
+ 6 12 3
+ 7 13 3
+ 8 14 3
  -1 4 0
- 2 14 4
- 3 15 4
- 4 16 4
- 5 12 4
+ 2 8 16
+ 3 5 17
+ 4 18 5
+ 5 19 5
+ 6 20 5
+ 7 21 5
+ 8 14 5
 end

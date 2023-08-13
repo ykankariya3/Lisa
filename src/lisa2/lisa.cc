@@ -606,6 +606,35 @@ TreeNode* createTree(spot::formula& f)
     return node;
 }
 
+// TreeNode* mergeCommonSubtrees(TreeNode* node) {
+//     if (node->value == op::And || node->value == op::Or) {
+//         std::map<std::vector<TreeNode*>, TreeNode> subtreesMap;
+        
+//         for (TreeNode* child : node->children) {
+//             subtreesMap[child->children].push_back(child);
+//         }
+        
+//         node->children.clear();
+        
+//         for (const auto& entry : subtreesMap) {
+//             if (entry.second.size() > 1) {
+//                 TreeNode* mergedNode = new TreeNode(node->value);
+//                 mergedNode->combined = true;
+//                 mergedNode->children = entry.second[0]->children;
+//                 node->children.push_back(mergedNode);
+//             } else {
+//                 node->children.push_back(entry.second[0]);
+//             }
+//         }
+        
+//         for (TreeNode* child : node->children) {
+//             child = mergeCommonSubtrees(child);
+//         }
+//     }
+    
+//     return node;
+// }
+
 void combineNot(TreeNode* node) {
 
 	TreeNode* child = (node->children).front();
@@ -786,6 +815,7 @@ int main(int argc, char** argv)
     input_f = pf1.f;
 
     TreeNode* tree = createTree(input_f);
+	//tree = mergeCommonSubtrees(tree);
 	printTree(tree);
 	clock_t c_end_decomp = clock();
 	nodeMap.clear();

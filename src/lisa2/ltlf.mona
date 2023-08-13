@@ -1,7 +1,7 @@
 #LTLf formula
-#G(((heapu1u4) & ((!(heapu0u0)) | (!(heapu1u0))) & (X[!](selcectusysu1))) -> ((X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3))))
+#G(((heapu1u5) & ((!(heapu0u0)) | (!(heapu1u0))) & (X[!](selcectusysu1))) -> ((X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3)) | (X[!](changeusysu4))))
 # Backus normal form
-#!(F(!((!(heapu1u4)) | (!((!(heapu0u0)) | (!(heapu1u0)))) | (X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3)) | (!(X[!](selcectusysu1))))))
+#!(F(!((!(heapu1u5)) | (!((!(heapu0u0)) | (!(heapu1u0)))) | (X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3)) | (X[!](changeusysu4)) | (!(X[!](selcectusysu1))))))
 m2l-str;
-var2 selcectusysu1, heapu1u4, changeusysu0, changeusysu1, changeusysu2, changeusysu3, heapu0u0, heapu1u0;
-~((ex1 x1: (0 <= x1 & (~(((~((x1 in heapu1u4))) | (~(((~((x1 in heapu0u0))) | (~((x1 in heapu1u0)))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu0))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu1))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu2))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu3))))) | (~((ex1 x2: (x2=x1+1 & ((x2 in selcectusysu1))))))))))));
+var2 heapu0u0, heapu1u0, heapu1u5, selcectusysu1, changeusysu1, changeusysu0, changeusysu2, changeusysu3, changeusysu4;
+~((ex1 x1: (0 <= x1 & (~(((~((x1 in heapu1u5))) | (~(((~((x1 in heapu0u0))) | (~((x1 in heapu1u0)))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu0))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu1))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu2))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu3))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu4))))) | (~((ex1 x2: (x2=x1+1 & ((x2 in selcectusysu1))))))))))));
