@@ -521,6 +521,7 @@ struct TreeNode {
     spot::op value;
     //spot::formula leafValue;
     std::vector<TreeNode*> children;
+	std::vector<TreeNode*> parents;
 	dfwa_pair* dfa;
 	bool combined;
 	int refCount;
@@ -551,6 +552,7 @@ TreeNode* createTree(spot::formula& f)
         for (formula children: f)
         {
             TreeNode* child = createTree(children);
+			child->parents.push_back(node);
             node->children.push_back(child);
         }
     } else if (node->value == op::G && f[0].kind() == op::And)
@@ -560,6 +562,7 @@ TreeNode* createTree(spot::formula& f)
 		{
 			formula gConjunct = formula::G(conjunct);
 			TreeNode* child = createTree(gConjunct);
+			child->parents.push_back(node);
 			node->children.push_back(child);
 		}
     } else if (node->value == op::F && f[0].kind() == op::Or)
@@ -569,6 +572,7 @@ TreeNode* createTree(spot::formula& f)
 		{
 			formula fSum = formula::F(sum);
 			TreeNode* child = createTree(fSum);
+			child->parents.push_back(node);
 			node->children.push_back(child);
 		}
     } else if (node -> value == op::Implies) {
@@ -579,6 +583,8 @@ TreeNode* createTree(spot::formula& f)
 		TreeNode* child2 = createTree(c2);
 		node->children.push_back(child1);
 		node->children.push_back(child2);
+		child1->parents.push_back(node);
+		child2->parents.push_back(node);
 	}
 	
 	else
@@ -606,34 +612,52 @@ TreeNode* createTree(spot::formula& f)
     return node;
 }
 
-// TreeNode* mergeCommonSubtrees(TreeNode* node) {
-//     if (node->value == op::And || node->value == op::Or) {
-//         std::map<std::vector<TreeNode*>, TreeNode> subtreesMap;
-        
-//         for (TreeNode* child : node->children) {
-//             subtreesMap[child->children].push_back(child);
-//         }
-        
-//         node->children.clear();
-        
-//         for (const auto& entry : subtreesMap) {
-//             if (entry.second.size() > 1) {
-//                 TreeNode* mergedNode = new TreeNode(node->value);
-//                 mergedNode->combined = true;
-//                 mergedNode->children = entry.second[0]->children;
-//                 node->children.push_back(mergedNode);
-//             } else {
-//                 node->children.push_back(entry.second[0]);
-//             }
-//         }
-        
-//         for (TreeNode* child : node->children) {
-//             child = mergeCommonSubtrees(child);
-//         }
-//     }
-    
-//     return node;
-// }
+void transformTree(TreeNode* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+	std::set<TreeNode*> neededToMerge;
+	for (TreeNode* child : root->children) {
+		for (TreeNode* check : child->children) {
+			if (check->refCount > 1 && neededToMerge.find(check) == neededToMerge.end()) {
+				neededToMerge.insert(check);
+
+			}
+		}
+	}
+	
+	// Check if the current child node has multiple parents
+	for (TreeNode* node : neededToMerge) {
+		if (node->children.empty()) {
+			continue;
+		}
+		std::vector<TreeNode*> commonParentsOr;
+		for (TreeNode* parent : node->parents) {
+			if (parent->value == op::Or && parent->parents.front() == root) {
+				commonParentsOr.push_back(parent);
+			}
+		}
+
+		TreeNode* mergedNode = commonParentsOr.front();
+		TreeNode* add = new TreeNode(op::And);
+		for (TreeNode* merge : commonParentsOr) {
+			for (TreeNode* child : merge->children) {
+				if (child == node) {
+					continue;
+				}
+				add->children.push_back(child);
+				merge->children.erase(std::remove(merge->children.begin(), merge->children.end(), child), merge->children.end());
+			}
+			node->refCount--;
+			root->children.erase(std::remove(root->children.begin(), root->children.end(), merge), root->children.end());
+		}
+		root->children.push_back(mergedNode);
+		mergedNode->children.push_back(add);
+	}
+
+        // Recursively apply the transformation to the child node
+}
 
 void combineNot(TreeNode* node) {
 
@@ -815,8 +839,9 @@ int main(int argc, char** argv)
     input_f = pf1.f;
 
     TreeNode* tree = createTree(input_f);
-	//tree = mergeCommonSubtrees(tree);
-	printTree(tree);
+	//printTree(tree);
+	transformTree(tree);
+	//printTree(tree);
 	clock_t c_end_decomp = clock();
 	nodeMap.clear();
     ltlfile.close();
@@ -830,7 +855,7 @@ int main(int argc, char** argv)
 	//cout << tree->leafValue << endl;
 
 	dfwa_pair* pair = tree->dfa;
-	cout << pair->_formula << endl;
+	//cout << pair->_formula << endl;
 
     // cout << "Finished constructing minimal dfa in "
     // 	<< 1000.0 * (c_end - c_start)/CLOCKS_PER_SEC << "ms ..." << endl;

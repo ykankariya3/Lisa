@@ -95,39 +95,39 @@ for folder in os.listdir(benchmark_folder):
             #total_runtime_lisa1 += float(lisa1_runtime)
 
             # Run command in lisa2
-            # lisa2_cmd = lisa2_command.format(path=lisa2_path, file=file)
-            # lisa2_output = subprocess.run(
-            #     lisa2_cmd, shell=True, capture_output=True, text=True
-            # )
+            lisa2_cmd = lisa2_command.format(path=lisa2_path, file=file)
+            lisa2_output = subprocess.run(
+                lisa2_cmd, shell=True, capture_output=True, text=True
+            )
 
-            # # Extract runtime, number of states, and number of subformulas from lisa2 output
-            # # Modify the code below based on the actual output format of lisa2
-            # lisa2_subformulas, lisa2_runtime, lisa2_states, decomp, unique, repetitive = extract_data(lisa2_output)
+            # Extract runtime, number of states, and number of subformulas from lisa2 output
+            # Modify the code below based on the actual output format of lisa2
+            lisa2_subformulas, lisa2_runtime, lisa2_states, decomp, unique, repetitive = extract_data(lisa2_output)
 
-            # row.extend([lisa2_runtime, lisa2_states, lisa2_subformulas, decomp, unique, repetitive])
+            row.extend([lisa2_runtime, lisa2_states, lisa2_subformulas, decomp, unique, repetitive])
 
             #total_runtime_lisa2 += float(lisa2_runtime)
-            lydia_runtime = 0
-            count = 0
+            # lydia_runtime = 0
+            # count = 0
 
-            for i in range(1):
+            # for i in range(1):
 
-                lydia_cmd = lydia_command.format(file=file)
-                lydia_output = subprocess.run(
-                    lydia_cmd, shell=True, capture_output=True, text=True
-                )
+            #     lydia_cmd = lydia_command.format(file=file)
+            #     lydia_output = subprocess.run(
+            #         lydia_cmd, shell=True, capture_output=True, text=True
+            #     )
 
-                temp = re.search(r"Overall time elapsed: (\d+\.\d+)", lydia_output.stdout)
-                if temp:
-                    lydia_runtime = temp.group(1) 
-                    count = count + 1
+            #     temp = re.search(r"Overall time elapsed: (\d+\.\d+)", lydia_output.stdout)
+            #     if temp:
+            #         lydia_runtime = temp.group(1) 
+            #         count = count + 1
 
-            if (count == 0):
-                count = 1
-            print(float(lydia_runtime) / count)
-            print()
+            # if (count == 0):
+            #     count = 1
+            # print(float(lydia_runtime) / count)
+            # print()
 
-            row.extend([float(lydia_runtime) / count])
+            # row.extend([float(lydia_runtime) / count])
 
             # #Run command in lisa2
             # lisa2_docker_cmd = lisa2_docker_command.format(file=file)
