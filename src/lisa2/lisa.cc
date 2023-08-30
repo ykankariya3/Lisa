@@ -614,47 +614,97 @@ TreeNode* createTree(spot::formula& f)
 
 void transformTree(TreeNode* root) {
     if (root == nullptr) {
-        return;
-    }
-
-	std::set<TreeNode*> neededToMerge;
-	for (TreeNode* child : root->children) {
-		for (TreeNode* check : child->children) {
-			if (check->refCount > 1 && neededToMerge.find(check) == neededToMerge.end()) {
-				neededToMerge.insert(check);
-
-			}
-		}
+		return;
 	}
 	
-	// Check if the current child node has multiple parents
-	for (TreeNode* node : neededToMerge) {
-		if (node->children.empty()) {
-			continue;
+	for (TreeNode* child : root->children) {
+		transformTree(child);
+	}
+
+	if (root->refCount > 1) {
+		std::vector<TreeNode*> andList;
+		std::vector<TreeNode*> orList;
+
+		for (TreeNode* parent : root->parents) {
+			if (parent->value == op::And) {
+				andList.push_back(parent);
+			}
+
+			if (parent->value == op::Or) {
+				orList.push_back(parent);
+			}
 		}
-		std::vector<TreeNode*> commonParentsOr;
-		for (TreeNode* parent : node->parents) {
-			if (parent->value == op::Or && parent->parents.front() == root) {
-				commonParentsOr.push_back(parent);
+		if (orList.size() > 1) {
+			std::map<TreeNode*, std::vector<TreeNode*>> orMap;
+			for (TreeNode* orParent : orList) {
+				for (TreeNode* ParentOfParent : orParent->parents) {
+					orMap[ParentOfParent].push_back(orParent);
+				}
+			}
+
+			for (const auto& kvp : orMap) {
+				TreeNode* ParentOfParent = kvp.first;
+				const std::vector<TreeNode*>& commonParentsOr = kvp.second;
+				TreeNode* mergedNode = new TreeNode(op::Or);
+				mergedNode->children.push_back(root);
+				TreeNode* add = new TreeNode(op::And);
+				mergedNode->children.push_back(add);
+				for (TreeNode* parent : commonParentsOr) {
+					for (TreeNode* child : parent->children) {
+						if (child == root) {
+							continue;
+						}
+						add->children.push_back(child);
+						child->parents.erase(std::remove(child->parents.begin(), child->parents.end(), parent), child->parents.end());
+						child->parents.push_back(add);
+					}
+					root->refCount--;
+					ParentOfParent->children.erase(std::remove(ParentOfParent->children.begin(), ParentOfParent->children.end(), parent), ParentOfParent->children.end());
+				}
+				ParentOfParent->children.push_back(mergedNode);
 			}
 		}
 
-		TreeNode* mergedNode = commonParentsOr.front();
-		TreeNode* add = new TreeNode(op::And);
-		for (TreeNode* merge : commonParentsOr) {
-			for (TreeNode* child : merge->children) {
-				if (child == node) {
-					continue;
-				}
-				add->children.push_back(child);
-				merge->children.erase(std::remove(merge->children.begin(), merge->children.end(), child), merge->children.end());
-			}
-			node->refCount--;
-			root->children.erase(std::remove(root->children.begin(), root->children.end(), merge), root->children.end());
-		}
-		root->children.push_back(mergedNode);
-		mergedNode->children.push_back(add);
+		
 	}
+
+	// std::set<TreeNode*> neededToMerge;
+	// for (TreeNode* child : root->children) {
+	// 	for (TreeNode* check : child->children) {
+	// 		if (check->refCount > 1 && neededToMerge.find(check) == neededToMerge.end()) {
+	// 			neededToMerge.insert(check);
+	// 		}
+	// 	}
+	// }
+	
+	// // Check if the current child node has multiple parents
+	// for (TreeNode* node : neededToMerge) {
+	// 	if (node->children.empty()) {
+	// 		continue;
+	// 	}
+	// 	std::vector<TreeNode*> commonParentsOr;
+	// 	for (TreeNode* parent : node->parents) {
+	// 		if (parent->value == op::Or && parent->parents.front() == root) {
+	// 			commonParentsOr.push_back(parent);
+	// 		}
+	// 	}
+
+	// 	TreeNode* mergedNode = commonParentsOr.front();
+	// 	TreeNode* add = new TreeNode(op::And);
+	// 	for (TreeNode* merge : commonParentsOr) {
+	// 		for (TreeNode* child : merge->children) {
+	// 			if (child == node) {
+	// 				continue;
+	// 			}
+	// 			add->children.push_back(child);
+	// 			merge->children.erase(std::remove(merge->children.begin(), merge->children.end(), child), merge->children.end());
+	// 		}
+	// 		node->refCount--;
+	// 		root->children.erase(std::remove(root->children.begin(), root->children.end(), merge), root->children.end());
+	// 	}
+	// 	root->children.push_back(mergedNode);
+	// 	mergedNode->children.push_back(add);
+	// }
 
         // Recursively apply the transformation to the child node
 }
@@ -839,9 +889,9 @@ int main(int argc, char** argv)
     input_f = pf1.f;
 
     TreeNode* tree = createTree(input_f);
-	//printTree(tree);
+	printTree(tree);
 	transformTree(tree);
-	//printTree(tree);
+	printTree(tree);
 	clock_t c_end_decomp = clock();
 	nodeMap.clear();
     ltlfile.close();
@@ -849,6 +899,8 @@ int main(int argc, char** argv)
     //cout << "Starting the composition phase" << endl;
 
     combineTree(tree);
+	cout << "Trial" << endl;
+
 	// mapped.clear();
 
 	clock_t c_end = clock();

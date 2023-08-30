@@ -1,7 +1,7 @@
 #LTLf formula
-#F((!(counter0)) & (!(counter1)) & (!(counter2)) & (!(counter3)) & (!(counter4)) & (!(counter5)) & (!(counter6)) & (!(counter7)) & (!(counter8)) & (!(counter9)) & (!(counter10)) & (!(counter11)) & (!(counter12)) & (!(counter13)) & (!(counter14)) & (!(counter15)) & (!(counter16)))
+#G(((heapu1u5) & ((!(heapu0u0)) | (!(heapu1u0))) & (X[!](selcectusysu1))) -> ((X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3)) | (X[!](changeusysu4))))
 # Backus normal form
-#F(!((counter0) | (counter1) | (counter2) | (counter3) | (counter4) | (counter5) | (counter6) | (counter7) | (counter8) | (counter9) | (counter10) | (counter11) | (counter12) | (counter13) | (counter14) | (counter15) | (counter16)))
+#!(F(!((!(heapu1u5)) | (!((!(heapu0u0)) | (!(heapu1u0)))) | (X[!](changeusysu0)) | (X[!](changeusysu1)) | (X[!](changeusysu2)) | (X[!](changeusysu3)) | (X[!](changeusysu4)) | (!(X[!](selcectusysu1))))))
 m2l-str;
-var2 counter0, counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10, counter11, counter12, counter13, counter14, counter15, counter16;
-(ex1 x1: (0 <= x1 & (~((((x1 in counter0)) | ((x1 in counter1)) | ((x1 in counter2)) | ((x1 in counter3)) | ((x1 in counter4)) | ((x1 in counter5)) | ((x1 in counter6)) | ((x1 in counter7)) | ((x1 in counter8)) | ((x1 in counter9)) | ((x1 in counter10)) | ((x1 in counter11)) | ((x1 in counter12)) | ((x1 in counter13)) | ((x1 in counter14)) | ((x1 in counter15)) | ((x1 in counter16)))))));
+var2 selcectusysu1, heapu1u5, changeusysu0, changeusysu1, changeusysu2, changeusysu3, changeusysu4, heapu0u0, heapu1u0;
+~((ex1 x1: (0 <= x1 & (~(((~((x1 in heapu1u5))) | (~(((~((x1 in heapu0u0))) | (~((x1 in heapu1u0)))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu0))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu1))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu2))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu3))))) | ((ex1 x2: (x2=x1+1 & ((x2 in changeusysu4))))) | (~((ex1 x2: (x2=x1+1 & ((x2 in selcectusysu1))))))))))));
