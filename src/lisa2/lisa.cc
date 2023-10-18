@@ -31,6 +31,7 @@
 #include <spot/tl/relabel.hh>
 #include <spot/tl/ltlf.hh>
 #include <spot/tl/simplify.hh>
+#include <spot/tl/nenoform.hh>
 
 #include <spot/misc/optionmap.hh>
 #include <spot/misc/timer.hh>
@@ -665,6 +666,37 @@ void transformTree(TreeNode* root) {
 			}
 		}
 
+		if (andList.size() > 1) {
+			std::map<TreeNode*, std::vector<TreeNode*>> andMap;
+			for (TreeNode* andParent : andList) {
+				for (TreeNode* ParentOfParent : andParent->parents) {
+					andMap[ParentOfParent].push_back(andParent);
+				}
+			}
+
+			for (const auto& kvp : andMap) {
+				TreeNode* ParentOfParent = kvp.first;
+				const std::vector<TreeNode*>& commonParentsAnd = kvp.second;
+				TreeNode* mergedNode = new TreeNode(op::And);
+				mergedNode->children.push_back(root);
+				TreeNode* add = new TreeNode(op::Or);
+				mergedNode->children.push_back(add);
+				for (TreeNode* parent : commonParentsAnd) {
+					for (TreeNode* child : parent->children) {
+						if (child == root) {
+							continue;
+						}
+						add->children.push_back(child);
+						child->parents.erase(std::remove(child->parents.begin(), child->parents.end(), parent), child->parents.end());
+						child->parents.push_back(add);
+					}
+					root->refCount--;
+					ParentOfParent->children.erase(std::remove(ParentOfParent->children.begin(), ParentOfParent->children.end(), parent), ParentOfParent->children.end());
+				}
+				ParentOfParent->children.push_back(mergedNode);
+			}
+		}
+
 		
 	}
 
@@ -888,8 +920,13 @@ int main(int argc, char** argv)
     // formula 
     input_f = pf1.f;
 
+
+	cout << "formula: " << input_f << endl;
+	//input_f = spot::negative_normal_form(input_f);
+	cout << "formula: " <<  spot::negative_normal_form(input_f) << endl;
+	cout << "formula: " <<  spot::negative_normal_form(input_f, true) << endl;
     TreeNode* tree = createTree(input_f);
-	printTree(tree);
+	// printTree(tree);
 	transformTree(tree);
 	printTree(tree);
 	clock_t c_end_decomp = clock();
