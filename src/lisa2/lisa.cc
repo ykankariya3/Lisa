@@ -613,6 +613,26 @@ TreeNode* createTree(spot::formula& f)
     return node;
 }
 
+void printTree(TreeNode* node, int indent = 0)
+{
+    if (node == nullptr)
+        return;
+
+    std::string indentStr(indent, ' ');
+
+    if (node->value == op::And || node->value == op::Or || node->value == op::Not)
+    {
+        std::cout << indentStr << "Operator: " << opToString(node->value) << std::endl;
+    }
+    else
+    {
+        std::cout << indentStr << "Formula: " << node->dfa->_formula << std::endl;
+    }
+
+    for (auto child : node->children)
+        printTree(child, indent + 4);
+}
+
 void transform(TreeNode* root) {
 	if (root == nullptr) {
 		return;
@@ -641,25 +661,27 @@ void transform(TreeNode* root) {
 
 
 	TreeNode* temp = nullptr;
-	int max = 0;
+	int max = 1;
 	for (auto check : occurances) {
-		cout << check.second << endl;
+		//cout << check.second << endl;
 		if (check.second > max) {
 			temp = check.first;
-			cout << opToString(temp->value) << endl;
+			max = check.second;
 		}
 	}
 
 	if (temp != nullptr) {
 		std::vector<TreeNode*> merge = parentList[temp];
+
 		TreeNode* mergedNode = new TreeNode(merge.front()->value);
 		TreeNode* childrenMergedNode = new TreeNode(root->value);
+
+		bool mergeToRoot = (merge.size() == root->children.size());
 
 		mergedNode->children.push_back(temp);
 		mergedNode->children.push_back(childrenMergedNode);
 		root->children.push_back(mergedNode);
 
-		mergedNode->parents.push_back(root);
 		temp->parents.push_back(mergedNode);
 		childrenMergedNode->parents.push_back(mergedNode);
 
@@ -682,7 +704,18 @@ void transform(TreeNode* root) {
 				childrenMergedNode->children.push_back(parent->children.front());
 			}
 		}
+
+		if (mergeToRoot) {
+			root->value = mergedNode->value;
+			root->children = mergedNode->children;
+			root->parents = mergedNode->parents;
+			root->refCount = mergedNode->refCount;
+		} else {
+			mergedNode->parents.push_back(root);
+		}
 	}
+
+	//printTree(root);
 
 	for (TreeNode* child : root->children) {
 		transform(child);
@@ -953,26 +986,6 @@ void combineTree(TreeNode* node)
 	}
 } 
 
-void printTree(TreeNode* node, int indent = 0)
-{
-    if (node == nullptr)
-        return;
-
-    std::string indentStr(indent, ' ');
-
-    if (node->value == op::And || node->value == op::Or || node->value == op::Not)
-    {
-        std::cout << indentStr << "Operator: " << opToString(node->value) << std::endl;
-    }
-    else
-    {
-        std::cout << indentStr << "Formula: " << node->dfa->_formula << std::endl;
-    }
-
-    for (auto child : node->children)
-        printTree(child, indent + 4);
-}
-
 int main(int argc, char** argv)
 {
     opt_t o;
@@ -1003,9 +1016,9 @@ int main(int argc, char** argv)
 	input_f = spot::negative_normal_form(input_f);
 	// cout << "formula: " <<  spot::negative_normal_form(input_f) << endl;
     TreeNode* tree = createTree(input_f);
-	printTree(tree);
+	//printTree(tree);
 	transform(tree);
-	printTree(tree);
+	//printTree(tree);
 	clock_t c_end_decomp = clock();
 	nodeMap.clear();
     ltlfile.close();
