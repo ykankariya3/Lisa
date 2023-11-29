@@ -694,7 +694,7 @@ void transform(TreeNode* root) {
 			temp->parents.erase(std::remove(temp->parents.begin(), temp->parents.end(), parent), temp->parents.end());
 			temp->refCount--;
 
-			cout << parent->children.size() << endl;
+			//cout << parent->children.size() << endl;
 
 			if (parent->children.size() > 1) {
 				childrenMergedNode->children.push_back(parent);
@@ -1012,7 +1012,7 @@ int main(int argc, char** argv)
     input_f = pf1.f;
 
 
-	cout << "formula: " << input_f << endl;
+	//cout << "formula: " << input_f << endl;
 	input_f = spot::negative_normal_form(input_f);
 	// cout << "formula: " <<  spot::negative_normal_form(input_f) << endl;
     TreeNode* tree = createTree(input_f);
@@ -1026,7 +1026,7 @@ int main(int argc, char** argv)
     //cout << "Starting the composition phase" << endl;
 
     combineTree(tree);
-	cout << "Trial" << endl;
+	//cout << "Trial" << endl;
 
 	// mapped.clear();
 
