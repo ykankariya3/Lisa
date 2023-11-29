@@ -613,6 +613,84 @@ TreeNode* createTree(spot::formula& f)
     return node;
 }
 
+void transform(TreeNode* root) {
+	if (root == nullptr) {
+		return;
+	}
+
+	std::map<TreeNode*, int> occurances;
+	std::map<TreeNode*, std::vector<TreeNode*>> parentList;
+
+	for (TreeNode* child : root->children) {
+		if (child->value == op::And || child->value == op::Or) {
+			for (TreeNode* check : child->children) {
+				if (check->refCount > 1) {
+					occurances[check] += 1;
+					if (occurances[check] == 1) {
+						std::vector<TreeNode*> parent;
+						parent.push_back(child);
+						parentList[check] = parent;
+					}
+					else {
+						parentList[check].push_back(child);
+					}
+				}
+			}
+		}
+	}
+
+
+	TreeNode* temp = nullptr;
+	int max = 0;
+	for (auto check : occurances) {
+		cout << check.second << endl;
+		if (check.second > max) {
+			temp = check.first;
+			cout << opToString(temp->value) << endl;
+		}
+	}
+
+	if (temp != nullptr) {
+		std::vector<TreeNode*> merge = parentList[temp];
+		TreeNode* mergedNode = new TreeNode(merge.front()->value);
+		TreeNode* childrenMergedNode = new TreeNode(root->value);
+
+		mergedNode->children.push_back(temp);
+		mergedNode->children.push_back(childrenMergedNode);
+		root->children.push_back(mergedNode);
+
+		mergedNode->parents.push_back(root);
+		temp->parents.push_back(mergedNode);
+		childrenMergedNode->parents.push_back(mergedNode);
+
+		for (TreeNode* parent : merge) {
+			parent->children.erase(std::remove(parent->children.begin(), parent->children.end(), temp), parent->children.end());
+			parent->parents.erase(std::remove(parent->parents.begin(), parent->parents.end(), root), parent->parents.end());
+
+			root->children.erase(std::remove(root->children.begin(), root->children.end(), parent), root->children.end());
+
+			temp->parents.erase(std::remove(temp->parents.begin(), temp->parents.end(), parent), temp->parents.end());
+			temp->refCount--;
+
+			cout << parent->children.size() << endl;
+
+			if (parent->children.size() > 1) {
+				childrenMergedNode->children.push_back(parent);
+				parent->parents.push_back(childrenMergedNode);
+			} else {
+				parent->children.front()->parents.push_back(childrenMergedNode);
+				childrenMergedNode->children.push_back(parent->children.front());
+			}
+		}
+	}
+
+	for (TreeNode* child : root->children) {
+		transform(child);
+	}
+
+	
+}
+
 void transformTree(TreeNode* root) {
     if (root == nullptr) {
 		return;
@@ -922,12 +1000,11 @@ int main(int argc, char** argv)
 
 
 	cout << "formula: " << input_f << endl;
-	//input_f = spot::negative_normal_form(input_f);
-	cout << "formula: " <<  spot::negative_normal_form(input_f) << endl;
-	cout << "formula: " <<  spot::negative_normal_form(input_f, true) << endl;
+	input_f = spot::negative_normal_form(input_f);
+	// cout << "formula: " <<  spot::negative_normal_form(input_f) << endl;
     TreeNode* tree = createTree(input_f);
-	// printTree(tree);
-	transformTree(tree);
+	printTree(tree);
+	transform(tree);
 	printTree(tree);
 	clock_t c_end_decomp = clock();
 	nodeMap.clear();
